@@ -8,7 +8,7 @@ const db = require('./util/database');
 
 const app = express();
 
-app.set('view engine', 'ejs'); 
+app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');

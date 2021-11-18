@@ -11,17 +11,15 @@ class Product {
   }
 
   save() {
-    const db = getDb(); 
+    const db = getDb();
     let dbOp;
-    if(this._id){
-      //Update the product
+    if (this._id) {
+      // Update the product
       dbOp = db
-      .collection('products')
-      .updateOne({_id: new mongodb.ObjectId(this._id)}, {$set: this});
+        .collection('products')
+        .updateOne({ _id: new mongodb.ObjectId(this._id) }, { $set: this });
     } else {
-      dbOp = db
-      .collection('products')
-      .insertOne(this)
+      dbOp = db.collection('products').insertOne(this);
     }
     return dbOp
       .then(result => {
